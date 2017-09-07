@@ -75,4 +75,4 @@ include file
 http://blog.csdn.net/finded/article/details/50478779
 
 
-
+yum install glibc-static
