@@ -8,13 +8,13 @@ extern "C"
     #include "lauxlib.h"  
     #include "lualib.h"  
 }  
-void main()  
+int main()  
 {  
     //1.创建Lua状态  
     lua_State *L = luaL_newstate();  
     if (L == NULL)  
     {  
-        return ;  
+        return 0;  
     }  
   
     //2.加载lua文件  
@@ -22,7 +22,7 @@ void main()
     if(bRet)  
     {  
         cout<<"load file error"<<endl;  
-        return ;  
+        return 0;  
     }  
   
     //3.运行lua文件  
@@ -30,7 +30,7 @@ void main()
     if(bRet)  
     {  
         cout<<"pcall error"<<endl;  
-        return ;  
+        return 0;  
     }  
   
     //4.读取变量  
@@ -54,7 +54,7 @@ void main()
         const char *pErrorMsg = lua_tostring(L, -1);  
         cout << pErrorMsg << endl;  
         lua_close(L);  
-        return ;  
+        return 0;  
     }  
     if (lua_isnumber(L, -1))        //取值输出  
     {  
@@ -73,5 +73,5 @@ void main()
   
     //7.关闭state  
     lua_close(L);  
-    return ;  
+    return 0;  
 }  
